@@ -5,4 +5,4 @@ class Pawn:
     pass
 
   def __str__(self):
-    return 'Pawn'
+    return 'p (Pawn)'

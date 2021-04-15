@@ -28,5 +28,4 @@ def main():
   pygame.quit()
 
 
-print(__file__)
 main()

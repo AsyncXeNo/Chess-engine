@@ -1,5 +1,5 @@
 import pygame
-from .constants import BLACK_SQUARE, WHITE_SQUARE, ROWS, COLS, SQUARE_SIZE, BASE_POS_FEN
+from .constants import BLACK_SQUARE, WHITE_SQUARE, ROWS, COLS, SQUARE_SIZE, BASE_POS_FEN, ALT_POS_FEN
 from .utils import fen_decrypter
 
 class Square():
@@ -28,7 +28,7 @@ class Board:
       piece.draw(win)
 
   def create_board(self):
-    self.pieces = fen_decrypter(BASE_POS_FEN)
+    self.pieces = fen_decrypter(ALT_POS_FEN)
     self.board = [[Square(col + 1, row + 1) for row in range(ROWS)] for col in range(COLS)]
 
     # delete

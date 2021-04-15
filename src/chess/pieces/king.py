@@ -5,4 +5,4 @@ class King:
     pass
 
   def __str__(self):
-    return 'King'
+    return 'k (King)'

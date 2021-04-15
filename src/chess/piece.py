@@ -25,13 +25,12 @@ pieces = {
 
 class Piece:
   def __init__(self, piece_type, row, col, color):
-    print(dir_path)
     self.row = row
     self.col = col
     self.color = color
     self.piece_type = piece_type
 
-    self.image = pieces[self.color][self.piece_type.__str__()[0].lower()]
+    self.image = pieces[self.color][self.piece_type.__str__()[0]]
     self.image_rect = self.image.get_rect()
 
     self.calc_pos()
@@ -40,7 +39,6 @@ class Piece:
     return f'type: {self.piece_type.__str__()} color: {self.color} pos: <{self.col}, {self.row}>'
 
   def calc_pos(self):
-    print(SQUARE_SIZE)
     self.image_rect.center = (SQUARE_SIZE * self.col) - (SQUARE_SIZE // 2), (SQUARE_SIZE * (9 - self.row)) - (SQUARE_SIZE // 2)
 
   def draw(self, win):

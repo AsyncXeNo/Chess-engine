@@ -5,4 +5,4 @@ class Rook:
     pass
 
   def __str__(self):
-    return 'Rook'
+    return 'r (Rook)'
