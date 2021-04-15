@@ -11,12 +11,12 @@ def fen_decrypter(fen_string):
   pieces = []
 
   piece_type_from_symbol = {
-    'p' : Pawn(),
-    'k' : King(),
-    'n' : Knight(),
-    'b' : Bishop(),
-    'q' : Queen(),
-    'r' : Rook()
+    'p' : Pawn,
+    'k' : King,
+    'n' : Knight,
+    'b' : Bishop,
+    'q' : Queen,
+    'r' : Rook
   }
 
   row, col = 8, 0
@@ -31,7 +31,7 @@ def fen_decrypter(fen_string):
       else:
         piece_color = 1 if letter.isupper() else 0
         letter = letter.lower()
-        piece_type = piece_type_from_symbol[letter]
+        piece_type = piece_type_from_symbol[letter](piece_color)
         col += 1
         pieces.append(Piece(piece_type, row, col, piece_color))
 

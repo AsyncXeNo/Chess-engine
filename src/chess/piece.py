@@ -1,6 +1,6 @@
 import pygame
 import os
-from .constants import SQUARE_SIZE
+from constants import SQUARE_SIZE
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -22,6 +22,7 @@ pieces = {
     'r': pygame.transform.scale(pygame.image.load(f'{dir_path}/../assets/black/rook.png'), (64, 64)),
   }
 }
+
 
 class Piece:
   def __init__(self, piece_type, row, col, color):
