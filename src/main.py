@@ -24,13 +24,9 @@ def main():
 
     board.draw(WIN)
     pygame.display.update()
-    
-    ## DELETE
-    board.create_board()
-    run = False
-    ## DELETE
 
   pygame.quit()
 
 
+print(__file__)
 main()
