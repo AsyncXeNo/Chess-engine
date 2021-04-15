@@ -12,9 +12,9 @@ from piece import Piece
 
 
 class Rook:
-  def __init__(self, color):
+  def __init__(self, color, first_move = True):
     self.color = color
-    self.first_move = True
+    self.first_move = first_move
     self.offsets = [(0, 1,), (1, 0,), (0, -1,), (-1, 0,)]
     self.max_squares = 7
 
@@ -44,8 +44,8 @@ class Rook:
         col += offset[0]
         row += offset[1]
 
-        for square in valid_for_this_offset:
-          for piece in pieces:
+        for piece in pieces:
+          for square in valid_for_this_offset:
             if piece.col == square[0] and piece.row == square[1]:
               if piece.color != self.color:
                 valid_for_this_offset = valid_for_this_offset[0:(valid_for_this_offset.index(square) + 1)]
@@ -68,11 +68,11 @@ class Rook:
 
 
 """----------------------------------------------TEST-----------------------------------------"""
-p1 = Piece(Rook(0), 5, 3, 0)
-p2 = Piece(Rook(1), 4, 3, 1)
+# p1 = Piece(Rook(0), 5, 4, 0)
+# p2 = Piece(Rook(1), 4, 3, 1)
 
-pieces = [p1, p2]
+# pieces = [p1, p2]
 
-p3 = Piece(Rook(1), 4, 4, 1)
-valid = p3.piece_type.calc_valid_squares(p3.col, p3.row, pieces)
-print(valid)
+# p3 = Piece(Rook(1), 4, 4, 1)
+# valid = p3.piece_type.calc_valid_squares(p3.col, p3.row, pieces)
+# print(valid)

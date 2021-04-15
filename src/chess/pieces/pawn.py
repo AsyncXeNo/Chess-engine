@@ -13,10 +13,10 @@ from piece import Piece
 
 class Pawn:
 
-  def __init__(self, color, can_be_en_passant = False):
+  def __init__(self, color, can_be_en_passant = False, first_move = True):
     self.color = color
     self.can_be_en_passant = can_be_en_passant
-    self.first_move = True
+    self.first_move = first_move
     self.max_squares = 1
 
   def __str__(self):
@@ -72,6 +72,8 @@ class Pawn:
           if piece.col == col and (piece.row + 1) == row:
             valid_squares.remove((piece.col, piece.row,))
 
+    for piece in pieces:
+      if piece.color != self.color:
         if piece.piece_type.__str__()[0] == self.__str__()[0]:
           if piece.piece_type.can_be_en_passant:
             virtual_pawn = copy.copy(piece)
@@ -80,8 +82,8 @@ class Pawn:
             else:
               virtual_pawn.row += 1
             virtual_pawn.can_be_en_passent = False
-
-    pieces.append(virtual_pawn)
+            pieces.append(virtual_pawn)
+            break
             
     for piece in pieces:
       if piece.color != self.color:
@@ -104,7 +106,7 @@ class Pawn:
       if piece.color == self.color:
         for square in valid_squares:
           if piece.col == square[0] and piece.row == square[1]:
-            valid_square.remove(square)
+            valid_squares.remove(square)
 
     return valid_squares
 #----------------------------------------------------------------------------------------------------------

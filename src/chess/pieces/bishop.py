@@ -12,9 +12,9 @@ from piece import Piece
 
 
 class Bishop: 
-  def __init__(self, color):
+  def __init__(self, color, first_move = True):
     self.color = color
-    self.first_move = True
+    self.first_move = first_move
     self.offsets = [(1, 1,), (1, -1,), (-1, 1,), (-1, -1,)]
     self.max_squares = 7
 
@@ -45,8 +45,8 @@ class Bishop:
         col += offset[0]
         row += offset[1]
 
-        for square in valid_for_this_offset:
-          for piece in pieces:
+        for piece in pieces:
+          for square in valid_for_this_offset:
             if piece.col == square[0] and piece.row == square[1]:
               if piece.color != self.color:
                 valid_for_this_offset = valid_for_this_offset[0:(valid_for_this_offset.index(square) + 1)]

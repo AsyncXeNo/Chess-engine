@@ -12,7 +12,7 @@ class Square():
     self.occupied = False
 
   def __str__(self):
-    return f'piece: {self.piece} pos: <{self.col}, {self.row}>'
+    return f'piece: {self.piece}'
 
 # Board class
 class Board:
@@ -21,6 +21,8 @@ class Board:
     self.selected_piece = None
     self.pieces = []
     self.create_board()
+    self.color_to_move = 1
+    self.num_of_moves = 0
 
   def draw(self, win):
     win.fill(BLACK_SQUARE)
@@ -51,8 +53,7 @@ class Board:
     self.log_squares()
 
   def create_board(self):
-    self.pieces = fen_decrypter(BASE_POS_FEN)
-    self.alt_pieces = fen_decrypter(ALT_POS_FEN)
+    self.pieces, self.color_to_move, self.num_of_moves = fen_decrypter(ALT_POS_FEN)
     
     self.board = [[Square(col + 1, row + 1) for row in range(ROWS)] for col in range(COLS)]
 
@@ -66,3 +67,5 @@ class Board:
     for row in self.board:
       for square in row:
         print(square)
+        if square.piece:
+          print(f'Positions it can go to: {square.piece.piece_type.calc_valid_squares(square.piece.col, square.piece.row, self.pieces)}')

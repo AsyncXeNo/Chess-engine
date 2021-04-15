@@ -12,9 +12,9 @@ from piece import Piece
 
 
 class Knight:
-  def __init__(self, color):
+  def __init__(self, color, first_move = True):
     self.color = color
-    self.first_move = True
+    self.first_move = first_move
     self.offsets = [(1, 2,), (2, 1,), (2, -1,), (1, -2,), (-1, -2,), (-2, -1,), (-2, 1,), (-1, 2)]
     self.max_squares = 1
 

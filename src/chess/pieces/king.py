@@ -12,9 +12,9 @@ from piece import Piece
 
 
 class King:
-  def __init__(self, color):
+  def __init__(self, color, first_move = True):
     self.color = color
-    self.first_move = True
+    self.first_move = first_move
     self.offsets = [(1, 1,), (1, 0,), (1, -1,), (0, -1,), (0, 1,), (-1, -1,), (-1, 0,), (-1, 1)]
     self.max_squares = 1
 
@@ -122,11 +122,11 @@ class King:
 
 
 """------------------------------------------------TEST------------------------------------------"""
-p1 = Piece(King(0), 5, 4, 0)
-p2 = Piece(King(1), 2, 3, 1)
+# p1 = Piece(King(0), 5, 4, 0)
+# p2 = Piece(King(1), 2, 3, 1)
 
-pieces = [p1, p2]
+# pieces = [p1, p2]
 
-p3 = Piece(King(1), 3, 3, 1)
-valid = p3.piece_type.calc_valid_squares(p3.col, p3.row, pieces)
-print(valid)
+# p3 = Piece(King(1), 3, 3, 1)
+# valid = p3.piece_type.calc_valid_squares(p3.col, p3.row, pieces)
+# print(valid)
